@@ -1,18 +1,61 @@
 package linkedlist;
-import java.util.LinkedList;
-public class LinkedLists<K> {
-	LinkedList<K> linkedlist = new LinkedList<>();
 
+/*
+ * this class uses generics and  will create a linkedlist by adding nodes 
+ * head is used to point to first node
+ * data refers to value  in the linked list
+ * next points  to next node in linked list
+ * T refers to any data type
+ */
+public class LinkedLists<T> {
+	Node head;
+
+	class Node {
+		int data;
+		Node next;
+
+		/*
+		 * this is a constructor of class Node this constructor will create node data of
+		 * node will be assigned to d and next will be null
+		 */
+		Node(int d) {
+			data = d;
+			next = null;
+		}
+
+	}
+
+	/*
+	 * this method will print the linked list tempnode , a node is considered it
+	 * acts like a iterator and iterates till last node this method will display
+	 * content of linked list
+	 */
+	public void insertFront(int data) {
+		Node newnode = new Node(data);
+		newnode.next = head;
+		head = newnode;
+	}
+
+	public void print() {
+		Node tempnode = head;
+		while (tempnode != null) {
+			System.out.print(tempnode.data + " ");
+			tempnode = tempnode.next;
+		}
+	}
+
+	/*
+	 * this is the main method this will create a object of Integer type for class
+	 * Linked List and use it to access method insertFront and print
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		LinkedList<Integer> linkedlist = new LinkedList<>();
-		linkedlist.add(56);
-		linkedlist.add(30);
-		linkedlist.add(70);
-		for(int i=0;i<linkedlist.size();i+=3)
-		{
-			System.out.printf(linkedlist.get(i)+"-->"+linkedlist.get(i+1)+"-->"+linkedlist.get(i+2));
-		}
+		LinkedLists<Integer> linklist = new LinkedLists();
+		linklist.insertFront(70);
+		linklist.insertFront(30);
+		linklist.insertFront(56);
+		linklist.print();
+
 	}
 
 }
