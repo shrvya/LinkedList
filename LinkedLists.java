@@ -43,7 +43,16 @@ public class LinkedLists<T> {
 			current = newnode;
 
 		}
-
+	}
+	public void insertBetween(T data)
+	{
+		Node newnode = new Node(data);
+		Node temp,nextnode;
+		temp=head;
+		nextnode=temp.next;
+		temp.next=newnode;
+		newnode.next=nextnode;
+		
 	}
 	/*
 	 * this method will print the linked list tempnode , a node is considered it
