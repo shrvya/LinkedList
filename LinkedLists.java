@@ -8,7 +8,7 @@ package linkedlist;
  * T refers to any data type
  */
 public class LinkedLists<T> {
-	public Node head = null, current;
+	public Node head = null, current, temp;
 
 	class Node<T> {
 		T data;
@@ -22,6 +22,18 @@ public class LinkedLists<T> {
 			data = d;
 			next = null;
 		}
+
+	}
+
+	/*
+	 * this method is used to delete the first node current will point to first node
+	 * temp will point to second node. second node is made as head
+	 */
+	public Node deleteFirst() {
+		current = head;
+		temp = head.next;
+		head = temp;
+		return head;
 
 	}
 
@@ -44,16 +56,7 @@ public class LinkedLists<T> {
 
 		}
 	}
-	public void insertBetween(T data)
-	{
-		Node newnode = new Node(data);
-		Node temp,nextnode;
-		temp=head;
-		nextnode=temp.next;
-		temp.next=newnode;
-		newnode.next=nextnode;
-		
-	}
+
 	/*
 	 * this method will print the linked list tempnode , a node is considered it
 	 * acts like a iterator and iterates till last node this method will display
