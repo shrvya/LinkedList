@@ -26,14 +26,20 @@ public class LinkedLists<T> {
 	}
 
 	/*
-	 * this method is used to delete the first node current will point to first node
-	 * temp will point to second node. second node is made as head
+	 * this method is used to delete the last node .current initially will point to
+	 * first node temp will point to node next to current node. last node is removed
+	 * and next of previous node is made null
 	 */
-	public Node deleteFirst() {
+	public Node deleteLast() {
 		current = head;
-		temp = head.next;
-		head = temp;
-		return head;
+		temp = current.next;
+		while (temp.next != null) {
+			temp = temp.next;
+			current = current.next;
+		}
+		current.next = null;
+
+		return temp;
 
 	}
 
