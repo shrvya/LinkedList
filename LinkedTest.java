@@ -7,17 +7,17 @@ public class LinkedTest {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		LinkedLists<Integer> linklist = new LinkedLists();
-		System.out.println("Linked list");
+		SortedLists<Integer> linklist = new SortedLists<Integer>();
+		System.out.println("Linked list is :");
 		linklist.append(56);
 		linklist.append(30);
 		linklist.append(70);
+		linklist.append(40);
 		linklist.print();
-		System.out.println("Linked list after modification:");
-		linklist.findInsert(30, 40);
-		System.out.println("Linked list after deletion:");
-		linklist.findDelete(40);
-		linklist.size();
+		System.out.println("Sorted list is: ");
+		linklist.sort();
+		
+		
 	}
 
 }
