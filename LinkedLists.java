@@ -9,6 +9,7 @@ package linkedlist;
  */
 public class LinkedLists<T> {
 	public Node head = null, current, temp;
+	int flag = 0;
 
 	class Node<T> {
 		T data;
@@ -26,20 +27,25 @@ public class LinkedLists<T> {
 	}
 
 	/*
-	 * this method is used to delete the last node .current initially will point to
-	 * first node temp will point to node next to current node. last node is removed
-	 * and next of previous node is made null
+	 * this method will find the desired data in the list it will check for each
+	 * node .if data of any node is same as data being searched then variable flag
+	 * is turned to 1 otherwise flag remains 0
 	 */
-	public Node deleteLast() {
+	public void find(T data) {
 		current = head;
 		temp = current.next;
-		while (temp.next != null) {
+		while (temp != null) {
+			if (temp.data == data) {
+				flag = 1;
+			}
 			temp = temp.next;
-			current = current.next;
 		}
-		current.next = null;
 
-		return temp;
+		if (flag == 1) {
+			System.out.println(data + " Is present in the list");
+		} else {
+			System.out.println(data + " Not found");
+		}
 
 	}
 
