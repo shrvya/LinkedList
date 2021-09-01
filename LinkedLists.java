@@ -27,26 +27,28 @@ public class LinkedLists<T> {
 	}
 
 	/*
-	 * this method will find the desired data in the list it will check for each
-	 * node .if data of any node is same as data being searched then variable flag
-	 * is turned to 1 otherwise flag remains 0
+	 * this method will find the node with desired data in the list and append a new
+	 * node next to that node.if node is found then flag=1 otherwise if flag=0 then
+	 * desired node is not found and cannot append
 	 */
-	public void find(T data) {
+	public void findInsert(T search, T data) {
+		Node newnode = new Node(data);
 		current = head;
 		temp = current.next;
 		while (temp != null) {
-			if (temp.data == data) {
+			if (temp.data == search) {
+				newnode.next = temp.next;
+				temp.next = newnode;
+				print();
 				flag = 1;
+				break;
 			}
 			temp = temp.next;
 		}
 
-		if (flag == 1) {
-			System.out.println(data + " Is present in the list");
-		} else {
-			System.out.println(data + " Not found");
+		if (flag == 0) {
+			System.out.println("Node not Found.Cannot append");
 		}
-
 	}
 
 	/*
