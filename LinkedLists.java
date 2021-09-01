@@ -8,17 +8,17 @@ package linkedlist;
  * T refers to any data type
  */
 public class LinkedLists<T> {
-	Node head;
+	public Node head = null, current;
 
-	class Node {
-		int data;
+	class Node<T> {
+		T data;
 		Node next;
 
 		/*
-		 * this is a constructor of class Node this constructor will create node data of
-		 * node will be assigned to d and next will be null
+		 * this is a constructor of class Node this constructor will create node with
+		 * data of type T and next will be null
 		 */
-		Node(int d) {
+		Node(T d) {
 			data = d;
 			next = null;
 		}
@@ -26,36 +26,38 @@ public class LinkedLists<T> {
 	}
 
 	/*
+	 * this method will add new nodes to then end data refers to data in the node
+	 * current is a pointer to nodes and keeps iterating the linked list head will
+	 * point to first node
+	 */
+	public void append(T data) {
+		Node newnode = new Node(data);
+		if (head == null) {
+
+			head = newnode;
+			current = head;
+
+		} else {
+
+			current.next = newnode;
+			current = newnode;
+
+		}
+
+	}
+	/*
 	 * this method will print the linked list tempnode , a node is considered it
 	 * acts like a iterator and iterates till last node this method will display
 	 * content of linked list
 	 */
-	public void insertFront(int data) {
-		Node newnode = new Node(data);
-		newnode.next = head;
-		head = newnode;
-	}
 
 	public void print() {
 		Node tempnode = head;
-		while (tempnode != null) {
-			System.out.print(tempnode.data + " ");
+		while (tempnode.next != null) {
+			System.out.print(tempnode.data + "-->");
 			tempnode = tempnode.next;
 		}
-	}
-
-	/*
-	 * this is the main method this will create a object of Integer type for class
-	 * Linked List and use it to access method insertFront and print
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		LinkedLists<Integer> linklist = new LinkedLists();
-		linklist.insertFront(70);
-		linklist.insertFront(30);
-		linklist.insertFront(56);
-		linklist.print();
-
+		System.out.println(tempnode.data);
 	}
 
 }
