@@ -3,9 +3,7 @@ package linkedlist;
 public class LinkedTest {
 	/*
 	 * this is the main method this will create a object of Integer type for class
-	 * LinkedList and use it to access methods this object will call append method
-	 * to create a linked list.findInsert method is used to search for node with
-	 * desired data and append a new node to it
+	 * LinkedList and use it to access methods
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -17,7 +15,9 @@ public class LinkedTest {
 		linklist.print();
 		System.out.println("Linked list after modification:");
 		linklist.findInsert(30, 40);
-
+		System.out.println("Linked list after deletion:");
+		linklist.findDelete(40);
+		linklist.size();
 	}
 
 }
